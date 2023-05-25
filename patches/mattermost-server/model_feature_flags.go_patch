@@ -1,0 +1,31 @@
+diff --git a/node_modules/mattermost-server/model/feature_flags.go b/node_modules/mattermost-server/model/feature_flags.go
+index cad64cc..2dbffde 100644
+--- a/node_modules/mattermost-server/model/feature_flags.go
++++ b/node_modules/mattermost-server/model/feature_flags.go
+@@ -84,7 +84,7 @@ func (f *FeatureFlags) SetDefaults() {
+ 	f.TestFeature = "off"
+ 	f.TestBoolFeature = false
+ 	f.EnableRemoteClusterService = false
+-	f.AppsEnabled = true
++	f.AppsEnabled = false // This breaks mobile client apps with plugins disabled errors
+ 	f.PluginApps = ""
+ 	f.PluginFocalboard = ""
+ 	f.PermalinkPreviews = true
+@@ -92,7 +92,7 @@ func (f *FeatureFlags) SetDefaults() {
+ 	f.BoardsDataRetention = false
+ 	f.NormalizeLdapDNs = false
+ 	f.EnableInactivityCheckJob = true
+-	f.UseCaseOnboarding = true
++	f.UseCaseOnboarding = false
+ 	f.GraphQL = false
+ 	f.InsightsEnabled = true
+ 	f.CommandPalette = false
+@@ -107,7 +107,7 @@ func (f *FeatureFlags) SetDefaults() {
+ 	f.ThreadsEverywhere = false
+ 	f.GlobalDrafts = true
+ 	f.WysiwygEditor = false
+-	f.OnboardingTourTips = true
++	f.OnboardingTourTips = false
+ }
+ 
+ func (f *FeatureFlags) Plugins() map[string]string {

@@ -1,0 +1,23 @@
+version: '2.4'
+services:
+  builder:
+    image: mattermost/custom_binary_builder:latest
+    container_name: mattermost_custom_binary_builder
+    platform: linux/amd64 # Needed so it doesn't build for arm64 or something unexepected.
+    build: 
+        context: .
+        dockerfile: ./custom_binary/Dockerfile
+        args:
+          GOLANG_VERSION: '1.18.1' # If unsure try the golang referenced in node_modules/mattermost-server/build/Dockerfile.buildenv
+          BASE_IMG: 'ubuntu:20.04' # Needed for compiling with matching glibc for the Mattermost component OS
+    working_dir: '/home/mattermost/mattermost-server'
+    command: bash -c "BUILD_NUMBER=$(cat package.json| python3 -c \"import sys, json; print(str(json.load(sys.stdin)['version']))\") make build-linux||exit;exit"
+    restart: 'no'
+    volumes:
+      - ./node_modules/mattermost-server:/home/mattermost/mattermost-server
+    networks:
+      - mattermost_builder
+
+networks:
+  mattermost_builder:
+    name: mattermost_builder

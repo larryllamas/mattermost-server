@@ -1,0 +1,67 @@
+diff --git a/node_modules/mattermost-server/go.mod b/node_modules/mattermost-server/go.mod
+index 7a5550a..f8c6399 100644
+--- a/node_modules/mattermost-server/go.mod
++++ b/node_modules/mattermost-server/go.mod
+@@ -64,11 +64,11 @@ require (
+ 	github.com/xtgo/uuid v0.0.0-20140804021211-a0b114877d4c
+ 	github.com/yuin/goldmark v1.5.3
+ 	golang.org/x/crypto v0.5.0
+-	golang.org/x/image v0.3.0
+-	golang.org/x/net v0.5.0
++	golang.org/x/image v0.6.0
++	golang.org/x/net v0.8.0
+ 	golang.org/x/sync v0.1.0
+-	golang.org/x/text v0.6.0
+-	golang.org/x/tools v0.5.0
++	golang.org/x/text v0.8.0
++	golang.org/x/tools v0.6.0
+ 	gopkg.in/mail.v2 v2.3.1
+ 	gopkg.in/yaml.v2 v2.4.0
+ 	gopkg.in/yaml.v3 v3.0.1
+@@ -105,7 +105,7 @@ require (
+ 	github.com/davecgh/go-spew v1.1.1 // indirect
+ 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
+ 	github.com/dsnet/compress v0.0.2-0.20210315054119-f66993602bf5 // indirect
+-	github.com/dustin/go-humanize v1.0.0 // indirect
++	github.com/dustin/go-humanize v1.0.1 // indirect
+ 	github.com/fatih/color v1.13.0 // indirect
+ 	github.com/fatih/set v0.2.1 // indirect
+ 	github.com/felixge/httpsnoop v1.0.3 // indirect
+@@ -135,7 +135,7 @@ require (
+ 	github.com/levigross/exp-html v0.0.0-20120902181939-8df60c69a8f5 // indirect
+ 	github.com/mattermost/mattermost-plugin-api v0.1.1 // indirect
+ 	github.com/mattn/go-colorable v0.1.13 // indirect
+-	github.com/mattn/go-isatty v0.0.17 // indirect
++	github.com/mattn/go-isatty v0.0.18 // indirect
+ 	github.com/mattn/go-runewidth v0.0.14 // indirect
+ 	github.com/minio/md5-simd v1.1.2 // indirect
+ 	github.com/minio/sha256-simd v1.0.0 // indirect
+@@ -151,7 +151,7 @@ require (
+ 	github.com/philhofer/fwd v1.1.2 // indirect
+ 	github.com/pierrec/lz4/v4 v4.1.17 // indirect
+ 	github.com/pmezard/go-difflib v1.0.0 // indirect
+-	github.com/remyoudompheng/bigfft v0.0.0-20220927061507-ef77025ab5aa // indirect
++	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+ 	github.com/richardlehane/mscfb v1.0.4 // indirect
+ 	github.com/richardlehane/msoleps v1.0.3 // indirect
+ 	github.com/rivo/uniseg v0.4.3 // indirect
+@@ -173,8 +173,8 @@ require (
+ 	github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8 // indirect
+ 	go.etcd.io/bbolt v1.3.6 // indirect
+ 	go.uber.org/atomic v1.10.0 // indirect
+-	golang.org/x/mod v0.7.0 // indirect
+-	golang.org/x/sys v0.4.0 // indirect
++	golang.org/x/mod v0.8.0 // indirect
++	golang.org/x/sys v0.6.0 // indirect
+ 	google.golang.org/genproto v0.0.0-20230104163317-caabf589fcbf // indirect
+ 	google.golang.org/grpc v1.51.0 // indirect
+ 	google.golang.org/protobuf v1.28.1 // indirect
+@@ -184,7 +184,7 @@ require (
+ 	lukechampine.com/uint128 v1.2.0 // indirect
+ 	modernc.org/cc/v3 v3.40.0 // indirect
+ 	modernc.org/ccgo/v3 v3.16.13 // indirect
+-	modernc.org/libc v1.22.2 // indirect
++	modernc.org/libc v1.22.3 // indirect
+ 	modernc.org/mathutil v1.5.0 // indirect
+ 	modernc.org/memory v1.5.0 // indirect
+ 	modernc.org/opt v0.1.3 // indirect

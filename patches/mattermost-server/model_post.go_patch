@@ -1,0 +1,17 @@
+diff --git a/node_modules/mattermost-server/model/post.go b/node_modules/mattermost-server/model/post.go
+index e7c11ed..7c1b313 100644
+--- a/node_modules/mattermost-server/model/post.go
++++ b/node_modules/mattermost-server/model/post.go
+@@ -54,10 +54,10 @@ const (
+ 	PostFileidsMaxRunes   = 300
+ 	PostFilenamesMaxRunes = 4000
+ 	PostHashtagsMaxRunes  = 1000
+-	PostMessageMaxRunesV1 = 4000
++	PostMessageMaxRunesV1 = 10485760 //Increasing from 4000 for messages Maxpostsize
+ 	PostMessageMaxBytesV2 = 65535                     // Maximum size of a TEXT column in MySQL
+ 	PostMessageMaxRunesV2 = PostMessageMaxBytesV2 / 4 // Assume a worst-case representation
+-	PostPropsMaxRunes     = 800000
++	PostPropsMaxRunes     = 10485760 //Increasing from 8000 for messages
+ 	PostPropsMaxUserRunes = PostPropsMaxRunes - 40000 // Leave some room for system / pre-save modifications
+ 
+ 	PropsAddChannelMember = "add_channel_member"

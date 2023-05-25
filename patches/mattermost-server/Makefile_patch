@@ -1,0 +1,26 @@
+diff --git a/node_modules/mattermost-server/Makefile b/node_modules/mattermost-server/Makefile
+index 99b079d..5f4deb7 100644
+--- a/node_modules/mattermost-server/Makefile
++++ b/node_modules/mattermost-server/Makefile
+@@ -43,6 +43,8 @@ ifeq ($(BUILD_NUMBER),dev)
+ 	export MM_FEATUREFLAGS_GRAPHQL = true
+ endif
+ 
++$(info    BUILD_NUMBER is $(BUILD_NUMBER))
++
+ # Enterprise
+ BUILD_ENTERPRISE_DIR ?= ../enterprise
+ BUILD_ENTERPRISE ?= true
+@@ -252,8 +254,10 @@ else ifeq ($(MM_NO_DOCKER),true)
+ else
+ 	@echo Starting docker containers
+ 
+-	docker-compose rm start_dependencies
+-	$(GO) run ./build/docker-compose-generator/main.go $(ENABLED_DOCKER_SERVICES) | docker-compose -f docker-compose.makefile.yml -f /dev/stdin $(DOCKER_COMPOSE_OVERRIDE) run -T --rm start_dependencies
++	# Fix 'Not a TTY' error message
++	$(GO) run ./build/docker-compose-generator/main.go $(ENABLED_DOCKER_SERVICES) > temp.docker-compose.config.yml
++	docker-compose -f docker-compose.makefile.yml -f temp.docker-compose.config.yml $(DOCKER_COMPOSE_OVERRIDE) run --rm start_dependencies
++	rm temp.docker-compose.config.yml
+   ifneq (,$(findstring openldap,$(ENABLED_DOCKER_SERVICES)))
+ 	cat tests/${LDAP_DATA}-data.ldif | docker-compose -f docker-compose.makefile.yml $(DOCKER_COMPOSE_OVERRIDE) exec -T openldap bash -c 'ldapadd -x -D "cn=admin,dc=mm,dc=test,dc=com" -w mostest || true';
+   endif
